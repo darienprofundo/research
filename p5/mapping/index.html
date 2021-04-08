@@ -12,24 +12,27 @@
   <script language="javascript" type="text/javascript" src="sketch.js"></script>
   <!-- this line removes any default padding and style. you might only need one of these values set. -->
 
-  <script src="https://unpkg.com/@googlemaps/js-api-loader@1.0.0/dist/index.min.js"></script>
+  <script src="https://unpkg.com/@googlemaps/js-api-loader@1.2.0/dist/index.min.js"></script>
 
-  <style>
-    #map {
-      height: 100%;
-    }
-    html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-    }
-  </style>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+  <link
+      href="https://unpkg.com/material-components-web@6.0.0/dist/material-components-web.css"
+      rel="stylesheet"  />
+
+
+  <link rel="stylesheet" type="text/css" href="./style.css" />
+
 
 </head>
 
 <body>
-<div id="map"></div>
+  <div id="map"></div>
 
+  <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHQYLCvwlryQ37bsv1qgjmEpQ47PLaQ20&callback=initMap&libraries=&v=weekly"
+    async
+  ></script>
 
 
 </body>
