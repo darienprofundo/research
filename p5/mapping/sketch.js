@@ -1,72 +1,88 @@
+// Daniel Shiffman
+// http://codingtra.in
+// Earthquake Data Viz
+// Video: https://youtu.be/ZiYdOwOrGyc
 
-// var token = "https:kc.kobotoolbox.org/api/v1/assets/2c773a1c48ccd8af2f3ec3213441df8ea023a9b8";
+var mapimg;
 
-let map;
-let lat = 0;
-let lng = 0;
+var clat = 0;
+var clon = 0;
 
-// The following example creates complex markers to indicate beaches near
-// Sydney, NSW, Australia. Note that the anchor is set to (0,32) to correspond
-// to the base of the flagpole.
-function initMap() {
-  const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 10,
-    center: { lat: -33.9, lng: 151.2 },
-  });
-  setMarkers(map);
+var lat = 0;
+var lon = 0;
+
+var ww = 1024;
+var hh = 512;
+
+var zoom = 1;
+var earthquakes;
+
+function preload() {
+  // The clon and clat in this url are edited to be in the correct order.
+  mapimg = loadImage(
+    'https://api.mapbox.com/styles/v1/mapbox/dark-v9/static/' +
+      clon +
+      ',' +
+      clat +
+      ',' +
+      zoom +
+      '/' +
+      ww +
+      'x' +
+      hh +
+      '?access_token=pk.eyJ1IjoiY29kaW5ndHJhaW4iLCJhIjoiY2l6MGl4bXhsMDRpNzJxcDh0a2NhNDExbCJ9.awIfnl6ngyHoB3Xztkzarw'
+  );
+  // earthquakes = loadStrings('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.csv');
+  earthquakes = loadStrings(
+    'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.csv'
+  );
 }
-// Data for the markers consisting of a name, a LatLng and a zIndex for the
-// order in which these markers should display on top of each other.
-const beaches = [
-  ["Bondi Beach", -33.890542, 151.274856, 4],
-  ["Coogee Beach", -33.923036, 151.259052, 5],
-  ["Cronulla Beach", -34.028249, 151.157507, 3],
-  ["Manly Beach", -33.80010128657071, 151.28747820854187, 2],
-  ["Maroubra Beach", -33.950198, 151.259302, 1],
-];
 
-function setMarkers(map) {
-  // Adds markers to the map.
-  // Marker sizes are expressed as a Size of X,Y where the origin of the image
-  // (0,0) is located in the top left of the image.
-  // Origins, anchor positions and coordinates of the marker increase in the X
-  // direction to the right and in the Y direction down.
-  const image = {
-    url:
-      "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
-    // This marker is 20 pixels wide by 32 pixels high.
-    size: new google.maps.Size(20, 32),
-    // The origin for this image is (0, 0).
-    origin: new google.maps.Point(0, 0),
-    // The anchor for this image is the base of the flagpole at (0, 32).
-    anchor: new google.maps.Point(0, 32),
-  };
-  // Shapes define the clickable region of the icon. The type defines an HTML
-  // <area> element 'poly' which traces out a polygon as a series of X,Y points.
-  // The final coordinate closes the poly by connecting to the first coordinate.
-  const shape = {
-    coords: [1, 1, 1, 20, 18, 20, 18, 1],
-    type: "poly",
-  };
+function mercX(lon) {
+  lon = radians(lon);
+  var a = (256 / PI) * pow(2, zoom);
+  var b = lon + PI;
+  return a * b;
+}
 
-  for (let i = 0; i < beaches.length; i++) {
-    const beach = beaches[i];
-    new google.maps.Marker({
-      position: { lat: beach[1], lng: beach[2] },
-      map,
-      icon: image,
-      shape: shape,
-      title: beach[0],
-      zIndex: beach[3],
-    });
+function mercY(lat) {
+  lat = radians(lat);
+  var a = (256 / PI) * pow(2, zoom);
+  var b = tan(PI / 4 + lat / 2);
+  var c = PI - log(b);
+  return a * c;
+}
+
+function setup() {
+  createCanvas(ww, hh);
+  translate(width / 2, height / 2);
+  imageMode(CENTER);
+  image(mapimg, 0, 0);
+
+  var cx = mercX(clon);
+  var cy = mercY(clat);
+
+  for (var i = 1; i < earthquakes.length; i++) {
+    var data = earthquakes[i].split(/,/);
+    //console.log(data);
+    var lat = data[1];
+    var lon = data[2];
+    var mag = data[4];
+    var x = mercX(lon) - cx;
+    var y = mercY(lat) - cy;
+    // This addition fixes the case where the longitude is non-zero and
+    // points can go off the screen.
+    if (x < -width / 2) {
+      x += width;
+    } else if (x > width / 2) {
+      x -= width;
+    }
+    mag = pow(10, mag);
+    mag = sqrt(mag);
+    var magmax = sqrt(pow(10, 10));
+    var d = map(mag, 0, magmax, 0, 180);
+    stroke(255, 0, 255);
+    fill(255, 0, 255, 200);
+    ellipse(x, y, d, d);
   }
 }
-
-// ======================================== draw
-// function draw() {
-//
-//   background(135, 157, 207);
-//
-// }
-
-// ======================================== end draw
