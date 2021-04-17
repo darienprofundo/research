@@ -1,24 +1,26 @@
 {
-  "name": "darien",
+  "name": "research",
   "version": "1.0.0",
-  "description": "Data Collection for the Darien Gap Project 2021-Illinois State University",
+  "description": "Darien",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url",
+    "url": "git+https://github.com/darienprofundo/research.git"
   },
   "keywords": [
     "data",
-    "research",
-    "archeology",
+    "research"
   ],
-  "author": "Kim Brucker",
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/darienprofundo/research/issues"
   },
-  "homepage": "https://github.com/darienprofundo/research#readme"
+  "homepage": "https://github.com/darienprofundo/research#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
