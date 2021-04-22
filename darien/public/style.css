@@ -1,9 +1,5 @@
-#mapISS {
-  min-height: 180px;
-  width: 100%;
-  background-repeat: no-repeat;
-}
-
+/* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
 #map {
   height: 100%;
 }
