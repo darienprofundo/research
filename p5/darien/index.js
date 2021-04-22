@@ -31,17 +31,20 @@
 // "formlist": "https://kc.kobotoolbox.org/api/v1/formlist?format=json",
 // "metadata": "https://kc.kobotoolbox.org/api/v1/metadata?format=json"
 // }
-
-app.listen(1301, () => console.log('listening at 1301'));
-app.use(express.static('public'));
-app.use(express.json({limit: '1mb'}));
-
-const api_url = "kc.kobotoolbox.org/api/v1";
-const apiKey = "2c773a1c48ccd8af2f3ec3213441df8ea023a9b8";
-const mediaURL = "https://kc.kobotoolbox.org/api/v1/media.json"
-
 const express = require('express');
 const app = express();
+
+app.listen()
+// app.listen(1301, () => console.log('listening at 1301'));
+// app.use(express.static('public'));
+// app.use(express.json({limit: '1mb'}));
+//
+// const api_url = "kc.kobotoolbox.org/api/v1";
+// const apiKey = "2c773a1c48ccd8af2f3ec3213441df8ea023a9b8";
+// const mediaURL = "https://kc.kobotoolbox.org/api/v1/media.json"
+//
+// const express = require('express');
+// const app = express();
 
 //========================================== send a post
 app.post('/api', (request, response) => {
@@ -58,7 +61,7 @@ app.get(mediaURL, (request, response) => {
       response.end();
     }
     response.json(data);
-  
+
   })
 });
 

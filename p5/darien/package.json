@@ -1,5 +1,5 @@
 {
-  "name": "selfie",
+  "name": "darien",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -7,5 +7,22 @@
   },
   "author": "Kim Brucker",
   "license": "MIT",
-  "description": ""
+  "description": "Data collection for Darien Profundo",
+  "repository": {
+    "type": "git",
+    "url": "https://darienprofundo.github.io/research/p5/darien/"
+  },
+  "keywords": [
+    "data",
+    "map",
+    "media",
+    "Panama",
+    "Darien",
+    "Provence",
+    "research",
+    "community"
+  ],
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
