@@ -34,9 +34,8 @@
 const express = require('express');
 const app = express();
 
-app.listen()
-// app.listen(1301, () => console.log('listening at 1301'));
-// app.use(express.static('public'));
+app.listen(3000, () => console.log(listening at 3000));
+app.use(express.static('public'));
 // app.use(express.json({limit: '1mb'}));
 //
 // const api_url = "kc.kobotoolbox.org/api/v1";
@@ -45,30 +44,30 @@ app.listen()
 //
 // const express = require('express');
 // const app = express();
-
-//========================================== send a post
-app.post('/api', (request, response) => {
-const data + request.body;
-console.log('I got a request!');
-console.log(request.body);
-database.insert(data);
-response.json(data);
-});
-//========================================== get a POST
-app.get(mediaURL, (request, response) => {
-  database.find({}, (err, data) => {
-    if  (err) {
-      response.end();
-    }
-    response.json(data);
-
-  })
-});
-
-getData();
-
-async function getData() {
-  const response = await fetch(mediaURL);
-  const data = await response.json();
-  console.log(data);
-}
+//
+// //========================================== send a post
+// app.post('/api', (request, response) => {
+// const data + request.body;
+// console.log('I got a request!');
+// console.log(request.body);
+// database.insert(data);
+// response.json(data);
+// });
+// //========================================== get a POST
+// app.get(mediaURL, (request, response) => {
+//   database.find({}, (err, data) => {
+//     if  (err) {
+//       response.end();
+//     }
+//     response.json(data);
+//
+//   })
+// });
+//
+// getData();
+//
+// async function getData() {
+//   const response = await fetch(mediaURL);
+//   const data = await response.json();
+//   console.log(data);
+// }
