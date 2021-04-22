@@ -13,9 +13,9 @@ function setup() {
 
 //===================================map elements
 function initMap() {
-  map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: -34.397, lng: 150.644 },
+  const map = new google.maps.Map(document.getElementById("map"), {
     zoom: 8,
+    center: { lat: 8.15, lng: -78.0 },
   });
 }
 //===================================draw
@@ -60,7 +60,7 @@ async function getISS() {
   document.getElementById('lon').textContent = longitude;
 
   console.log(latitude);
-    console.log(longitude);
+  console.log(longitude);
 }
 
 getISS();
