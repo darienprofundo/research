@@ -67,8 +67,11 @@ function setMarkers(map) {
   }
 }
 
-
-
+async function getData() {
+  const response = await fetch('/api');
+  const data = await response.json;
+  console.log(data);
+}
   // mymap.on('zoomend', function() {
   //   const zoom = mymap.getZoom() + 1;
   //   const w = 50 * zoom;

@@ -8,6 +8,11 @@ const app = express();
 app.listen(1300, () => console.log('listening at 1300'));
 app.use(express.static('public'));
 
+app.get('/api', (request, response) => {
+  response.json( {test: 123});
+});
+
+
 // {
 //     "id": 270622,
 //     "username": "dariengap2021",
