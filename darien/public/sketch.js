@@ -1,5 +1,4 @@
 //====================================variables
-let map;
 
 //====================================preload
 function preload() {
@@ -70,38 +69,38 @@ function setMarkers(map) {
 
 
 
-  mymap.on('zoomend', function() {
-    const zoom = mymap.getZoom() + 1;
-    const w = 50 * zoom;
-    const h = 32 * zoom;
-    issIcon.options.iconSize = [w, h];
-    issIcon.options.iconAnchor = [w / 2, h / 2];
-    mymap.removeLayer(marker);
-    let latlng = marker.getLatLng();
-    marker = L.marker([0, 0], { icon: issIcon }).addTo(mymap);
-    marker.setLatLng(latlng);
-  });
+  // mymap.on('zoomend', function() {
+  //   const zoom = mymap.getZoom() + 1;
+  //   const w = 50 * zoom;
+  //   const h = 32 * zoom;
+  //   issIcon.options.iconSize = [w, h];
+  //   issIcon.options.iconAnchor = [w / 2, h / 2];
+  //   mymap.removeLayer(marker);
+  //   let latlng = marker.getLatLng();
+  //   marker = L.marker([0, 0], { icon: issIcon }).addTo(mymap);
+  //   marker.setLatLng(latlng);
+  // });
 
-  const api_url = 'https://api.wheretheiss.at/v1/satellites/25544';
-
-  let firstTime = true;
-
-  async function getISS() {
-    const response = await fetch(api_url);
-    const data = await response.json();
-    const { latitude, longitude } = data;
-
-    marker.setLatLng([latitude, longitude]);
-    if (firstTime) {
-      mymap.setView([latitude, longitude], 2);
-      firstTime = false;
-    }
-    document.getElementById('lat').textContent = latitude.toFixed(2);
-    document.getElementById('lon').textContent = longitude.toFixed(2);
-  }
-
-  getISS();
-  setInterval(getISS, 1000);
+  // const api_url = 'https://api.wheretheiss.at/v1/satellites/25544';
+  //
+  // let firstTime = true;
+  //
+  // async function getISS() {
+  //   const response = await fetch(api_url);
+  //   const data = await response.json();
+  //   const { latitude, longitude } = data;
+  //
+  //   marker.setLatLng([latitude, longitude]);
+  //   if (firstTime) {
+  //     mymap.setView([latitude, longitude], 2);
+  //     firstTime = false;
+  //   }
+  //   document.getElementById('lat').textContent = latitude.toFixed(2);
+  //   document.getElementById('lon').textContent = longitude.toFixed(2);
+  // }
+  //
+  // getISS();
+  // setInterval(getISS, 1000);
 
 //===================================Darien map
 // function initMap() {
@@ -115,33 +114,33 @@ function draw() {
 
 }
 //====================================geolocation available
-document.getElementById('geolocate').addEventListener('click', event => {
-  if ('geolocation' in navigator) {
-    console.log('geolocation available');
-  navigator.geolocation.getCurrentPosition(position => {
-    const lat = position.coords.latitude;
-    const lon = position.coords.longitude;
-    document.getElementById('latitude').textContent = lat;
-    document.getElementById('longitude').textContent = lon;
-    //console.log(position);
-
-
-    const data = { lat, lon};
-    const options = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    };
-    fetch('/api', options).then(response => {
-      console.log(response);
-    });
-});
-//======================================geolocation not available
-} else {
-  console.log("geolocation IS NOT available");
-}
+// document.getElementById('geolocate').addEventListener('click', event => {
+//   if ('geolocation' in navigator) {
+//     console.log('geolocation available');
+//   navigator.geolocation.getCurrentPosition(position => {
+//     const lat = position.coords.latitude;
+//     const lon = position.coords.longitude;
+//     document.getElementById('latitude').textContent = lat;
+//     document.getElementById('longitude').textContent = lon;
+//     //console.log(position);
+//
+//
+//     const data = { lat, lon};
+//     const options = {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json'
+//       },
+//       body: JSON.stringify(data)
+//     };
+//     fetch('/api', options).then(response => {
+//       console.log(response);
+//     });
+// });
+// //======================================geolocation not available
+// } else {
+//   console.log("geolocation IS NOT available");
+// }
 
 //-----------------------------------------------
 
