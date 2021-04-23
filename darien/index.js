@@ -1,7 +1,22 @@
 
 //========https://kc.kobotoolbox.org/api/v1/data/653247.json
+//curl -X GET https://[kpi-url]/api/v2/assets.json -H "Authorization: Token [your_token_goes_here]"
 //========2c773a1c48ccd8af2f3ec3213441df8ea023a9b8
-//========form ID 653247
+
+// "id": 662584,
+// "id_string": "ahY7awVS6SUYmZ6qqbHyFQ",
+// "title": "Documenting Darién",
+// "description": "Documenting Darién",
+// "url": "https://kc.kobotoolbox.org/api/v1/data/662584.json"
+//
+//
+// "id": 653247,
+// "id_string": "akmQboYqzvAGtENDMnTrVM",
+// "title": "Darién Profundo",
+// "description": "Darien Profundo_040821",
+// "url": "https://kc.kobotoolbox.org/api/v1/data/653247.json"
+
+
 const express = require('express');
 const Datastore = require('nedb');
 const fetch = require('node-fetch');
@@ -16,30 +31,35 @@ app.use(express.static('public'));
 app.use(express.json({ limit: '1mb' }));
 //=======================================personal database
 
-const database = new Datastore('database.db');
-database.loadDatabase();
-
-app.get('/api', (request, response) => {
-  database.find({}, (err, data) => {
-    if (err) {
-      response.end();
-      return;
-    }
-    response.json(data);
-  });
-});
-
-app.post('/api', (request, response) => {
-  const data = request.body;
-  const timestamp = Date.now();
-  data.timestamp = timestamp;
-  database.insert(data);
-  response.json(data);
-});
+// const database = new Datastore('database.db');
+// database.loadDatabase();
+//
+// app.get('/api', (request, response) => {
+//   database.find({}, (err, data) => {
+//     if (err) {
+//       response.end();
+//       return;
+//     }
+//     response.json(data);
+//   });
+// });
+//
+// app.post('/api', (request, response) => {
+//   const data = request.body;
+//   const timestamp = Date.now();
+//   data.timestamp = timestamp;
+//   database.insert(data);
+//   response.json(data);
+// });
 
 //=====================================personal Database
 
 //=====================================3rd party database (kobotoolbox)
+
+//queries======='https://kc.kobotoolbox.org/api/v1/data/22845?query={"_geolocation": "monthly"}' : [
+8.268792,
+-78.149254
+],
 
 app.get('/weather/:latlon', async (request, response) => {
   console.log(request.params);

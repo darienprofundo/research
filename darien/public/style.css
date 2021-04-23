@@ -1,5 +1,10 @@
 /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
+p {
+  padding: 10px;
+  background-color: #ffddff;
+}
+
 #map {
   height: 100%;
 }
