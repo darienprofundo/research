@@ -72,6 +72,13 @@ async function getData() {
   const data = await response.json;
   console.log(data);
 }
+
+// for (item of data) {
+//   const root = document.createElement('div');
+//
+//   root.textContent =
+//
+// }
   // mymap.on('zoomend', function() {
   //   const zoom = mymap.getZoom() + 1;
   //   const w = 50 * zoom;
