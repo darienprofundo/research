@@ -1,7 +1,7 @@
 {
   "name": "darien",
   "version": "1.0.0",
-  "description": "Darien Profundo database collection",
+  "description": "Darien Profundo database collection. This is a version of 'weather here' app by Joey Lee. From the Coding Train YouTube series",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
