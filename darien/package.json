@@ -1,25 +1,25 @@
 {
   "name": "darien",
   "version": "1.0.0",
-  "description": "Darien Profundo database collection. This is a version of 'weather here' app by Joey Lee. From the Coding Train YouTube series",
+  "description": "Web application for showing data collected through KoBo Toolbox Darien Profundo project. Based on Weather Here by Daniel Schiffman and Joey Lee",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "Darien",
+    "Research",
     "data",
-    "community",
-    "research"
+    "open-source",
+    "anthropology",
+    "archeology",
+    "Darien",
+    "Panama"
   ],
   "author": "Kim Brucker",
   "license": "MIT",
   "dependencies": {
-    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "mongodb": "^3.6.6",
-    "nedb": "^1.8.0",
-    "node-fetch": "^2.6.1",
     "nodemon": "^2.0.7",
     "pg-promise": "^10.10.1",
     "redis": "^3.1.2"
