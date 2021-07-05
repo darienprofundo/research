@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="sketch.js"></script>
+  <!-- <script src="../libs/p5.min.js"></script>
+  <script src="../libs/p5.dom.min.js"></script> -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+
+<title>Server Programming</title>
+</head>
+
+<body>
+  <h2>Dynamic Updating Location</h2>
+  <p>
+    latitude: <span id="lat"></span><br>
+    longitude: <span id="lon"></span>
+  </p>
+<div id="mapid"></div>
+
+<!-- ==============mapping script start================ -->
+<script type="text/javascript">
+const flora = L.icon({
+    iconUrl: 'assets/1x/flora.png',
+    iconSize: [30, 30],
+    iconAnchor: [15, 15],
+});
+const mymap = L.map('mapid').setView([0, 0], 1);
+const marker = L.marker([0, 0], { icon: flora }).addTo(mymap);
+const attribution = 'Maps © <a href="http://www.thunderforest.com/">Thunderforest</a>, Data © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>';
+const tileURL = 'https://tile.thunderforest.com/pioneer/{z}/{x}/{y}.png?apikey=1465c0f0a7fe4e91a7eb742506518845';
+const tiles = L.tileLayer(tileURL, { attribution });
+tiles.addTo(mymap);
+</script>
+<!-- ==============mapping script end================ -->
+
+</body>
+
+</html>
