@@ -1,3 +1,13 @@
+var mapimg;
+
+var clat = 0;
+var clon = 0;
+
+var ww = 1024;
+var hh = 512;
+
+var zoom = 1;
+var geolocal;
 
 const data = { lat, lon, _geolocation };
 const options = {
@@ -14,15 +24,8 @@ let firstTime = true;
   const { lat, lon } = data;
   marker.setLatLng([lat, lon]);
   marker.setLatLng([lat, lon]);
+
   if (firstTime) {
     mymap.setView([lat, lon], 4);
     firstTime = false;
   }
-  kobo = json.kobo;
-  document.getElementById('summary').textContent = weather.summary;
-  document.getElementById('temp').textContent = weather.temperature;
-
-  document.getElementById('lat').textContent = latitude;
-  document.getElementById('lon').textContent = longitude;
-
-}
