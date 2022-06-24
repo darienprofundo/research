@@ -1,0 +1,108 @@
+//2c773a1c48ccd8af2f3ec3213441df8ea023a9b8
+//https://kf.kobotoolbox.org/api/v2/assets/akmQboYqzvAGtENDMnTrVM/data.json
+//https://kc.kobotoolbox.org/api/v1/submissions?format=json?
+//https://kc.kobotoolbox.org/api/v1/ -u username:password
+// Token Authentication
+// Example using curl:
+//
+// curl -X GET https://kc.kobotoolbox.org/api/v1/ -H "Authorization: Token TOKEN_KEY"
+// "media": "https://kc.kobotoolbox.org/api/v1/media",
+//    "notes": "https://kc.kobotoolbox.org/api/v1/notes",
+//     "url": "https://kc.kobotoolbox.org/api/v1/data/662584?format=json?dariengap2021=IllinoisState2021?author"
+
+
+// [{
+//     "id": 662584,
+//     "id_string": "ahY7awVS6SUYmZ6qqbHyFQ",
+//     "title": "Documenting Darién",
+//     "description": "Documenting Darién",
+//     "url": "https://kc.kobotoolbox.org/api/v1/data/662584.json"
+// }, {
+//     "id": 653247,
+//     "id_string": "akmQboYqzvAGtENDMnTrVM",
+//     "title": "Darién Profundo",
+//     "description": "Darien Profundo_040821",
+//     "url": "https://kc.kobotoolbox.org/api/v1/data/653247.json"
+// }]
+//====Darien Profundo form url===https://kc.kobotoolbox.org/api/v1/data/653247.json?Authorization:Token2c773a1c48ccd8af2f3ec3213441df8ea023a9b8
+//====Media url=== https://kc.kobotoolbox.org/api/v1/media.json
+
+const express = require('express');
+const Datastore = require('nedb');
+const fetch = require('node-fetch');
+require('dotenv').config();
+
+const app = express();
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Starting server at ${port}`);
+});
+app.use(express.static('public'));
+app.use(express.json({
+  limit: '1mb'
+}));
+
+app.get('/toolbox', async (request, response) => {
+  console.log(request.params);
+  const kobo_url = 'https:kc.kobotoolbox.org/api/v1/data.json?Authorization:Token2c773a1c48ccd8af2f3ec3213441df8ea023a9b8';
+  const kobo_response = await fetch(kobo_url);
+  const kobo_data = await kobo_response.json();
+
+  response.json(data);
+  console.log(data);
+
+  // find({}, (err, data) => {
+  //   if (err) {
+  //     response.end();
+  //     return;
+  //   }
+  //   response.json(data);
+  //   console.log(data);
+  // });
+
+  // const database = new Datastore('database.db');
+  // database.loadDatabase();
+
+  // app.get('/toolbox', (request, response) => {
+  //   // database.find({}, (err, data) => {
+  // // find({}, (err, data) => {
+  // //     if (err) {
+  // //       response.end();
+  // //       return;
+  // //     }
+  // //     response.json(data);
+  // //   });
+  // });
+
+  // app.post('/api', (request, response) => {
+  //   const data = request.body;
+  //   const timestamp = Date.now();
+  //   data.timestamp = timestamp;
+  //   database.insert(data);
+  //   response.json(data);
+  // });
+  //==============start point for collecting lat and longitude
+
+
+
+  // console.log(request.params);
+  // const _geolocation = request.params._geolocation.split(',');
+  // console.log(_geolocation);
+  // const lat = _geolocation[0];
+  // const lon = _geolocation[1];
+  // console.log(lat, lon);
+
+  //const api_key = process.env.API_KEY;
+  //const kobo_url = `https://api.darksky.net/forecast/${api_key}/${lat},${lon}/?units=si`;
+
+
+  // const aq_url = `https://api.openaq.org/v1/latest?coordinates=${lat},${lon}`;
+  // const aq_response = await fetch(aq_url);
+  // const aq_data = await aq_response.json();
+
+  // const data = {
+  //   kobo: kobo_data,
+  //   air_quality: aq_data
+  // };
+  // response.json(data);
+});

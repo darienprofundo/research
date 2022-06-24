@@ -1,0 +1,23 @@
+{
+  "name": "darien",
+  "version": "1.0.0",
+  "description": "Darien Profundo database collection",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Darien",
+    "data",
+    "community",
+    "research"
+  ],
+  "author": "Kim Brucker",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.1",
+    "nodemon": "^2.0.7"
+  }
+}

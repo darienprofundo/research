@@ -1,0 +1,18 @@
+{
+  "name": "darienmapping",
+  "version": "1.0.0",
+  "description": "Mapping coordinates using with a secret key",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "data",
+    "research"
+  ],
+  "author": "Kim Brucker",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
