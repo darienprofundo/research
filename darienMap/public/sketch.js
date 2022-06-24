@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 const zoom = 1;
 const geolocal;
 
@@ -24,13 +25,39 @@ geolocal = loadStrings('assets/Darien_Profundo_excelExport.csv');
 
 
 //=======initial view of map
+=======
+const data = { lat, lon, _geolocation };
+const options = {
+  method: 'GET'
+};
+
+const kobo_url = `kobo/${lat},${lon}`;
+// const response = await fetch(kobo_url);
+// const data = await response.json();
+
+
+>>>>>>> 0b6853a098ee4032f0ac43463d362f17ce2c649c
 let firstTime = true;
 
   const { lat, lon } = data;
   marker.setLatLng([lat, lon]);
   marker.setLatLng([lat, lon]);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0b6853a098ee4032f0ac43463d362f17ce2c649c
   if (firstTime) {
     mymap.setView([lat, lon], 4);
     firstTime = false;
   }
+<<<<<<< HEAD
+=======
+  kobo = json.kobo;
+  document.getElementById('summary').textContent = weather.summary;
+  document.getElementById('temp').textContent = weather.temperature;
+
+  document.getElementById('lat').textContent = latitude;
+  document.getElementById('lon').textContent = longitude;
+
+}
+>>>>>>> 0b6853a098ee4032f0ac43463d362f17ce2c649c
