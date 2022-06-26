@@ -1,0 +1,76 @@
+<html>
+
+<head>
+  <title>leaflet code</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+  <style>
+    #mapid {
+      height: 1400px;
+      width: 960px;
+    }
+
+    p {
+      padding: 10px;
+      background-color: #ffddff;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Darien Provence</h2>
+  <!-- <p>
+    latitude: <span id="lat"></span><br>
+    longitude: <span id="lon"></span>
+  </p> -->
+  <div id="mapid"></div>
+  <script type="text/javascript">
+    // const flora = L.icon({
+    //   iconUrl: 'assets/1x/flora.png',
+    //   iconSize: [30, 30],
+    //   iconAnchor: [15, 15],
+    // });
+    const mymap = L.map('mapid').setView([8.25, -78], 4);
+    // const marker = L.marker([0, 0], {
+    //   icon: flora
+    // }).addTo(mymap);
+    const attribution = 'Maps © <a href="http://www.thunderforest.com/">Thunderforest</a>, Data © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>';
+    const tileURL = "https://tile.thunderforest.com/outdoors/{z}/{x}/{y}.png?apikey=1465c0f0a7fe4e91a7eb742506518845";
+    const tiles = L.tileLayer(tileURL, {
+      attribution
+    });
+
+    tiles.addTo(mymap);
+
+    // const api_url = 'https://api.wheretheiss.at/v1/satellites/25544';
+    // let firstTime = true;
+
+    // async function getISS() {
+    //   const response = await fetch(api_url);
+    //   const data = await response.json();
+    //   console.log(data);
+    //   const {
+    //     latitude,
+    //     longitude
+    //   } = data;
+    //   marker.setLatLng([latitude, longitude]);
+    //   marker.setLatLng([latitude, longitude]);
+    //   if (firstTime) {
+    //     mymap.setView([latitude, longitude], 4);
+    //     firstTime = false;
+    //   }
+    //
+    //   document.getElementById('lat').textContent = latitude;
+    //   document.getElementById('lon').textContent = longitude;
+    //
+    // }
+    // getISS();
+    // setInterval(getISS, 1000);
+  </script>
+
+</body>
+
+</html>
+</body>
+
+</html>

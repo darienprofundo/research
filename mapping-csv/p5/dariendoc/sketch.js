@@ -1,11 +1,7 @@
 //====================================variables
-//const mymap = L.map('mapid').setView([8.15, -78.0], 9);
+var mymap = L.map('mapid').setView([8.15, -78.0], 9);
 
-//tile.thunderforest.com/pioneer/{z}/{x}/{y}.png?apikey=1465c0f0a7fe4e91a7eb742506518845
 
-//Maps © Thunderforest, Data © OpenStreetMap contributors
-
-// Maps © www.thunderforest.com, Data © www.osm.org/copyright
 
 //====================================preload
 function preload() {
@@ -43,3 +39,6 @@ function setup() {
 
 
 //===================================draw
+function draw() {
+initMap();
+}

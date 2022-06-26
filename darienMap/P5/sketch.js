@@ -30,7 +30,7 @@ function preload() {
       '?access_token=pk.eyJ1IjoiY29kaW5ndHJhaW4iLCJhIjoiY2l6MGl4bXhsMDRpNzJxcDh0a2NhNDExbCJ9.awIfnl6ngyHoB3Xztkzarw'
   );
   // earthquakes = loadStrings('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.csv');
-  geolocal = loadStrings("../assets/Darien_Profundo_excelExport.csv");
+  geolocal = loadStrings('../assets/Darien_Profundo_excelExport.csv');
 }
 
 function mercX(lon) {

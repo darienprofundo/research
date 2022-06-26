@@ -1,0 +1,13 @@
+ body {
+   padding: 0;
+   margin: 0;
+ }
+#mapid {
+  height: 720px;
+  width: 1080px;
+}
+
+p {
+  padding: 10px;
+  background-color: #ffddff;
+}

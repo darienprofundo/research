@@ -1,24 +1,29 @@
-var mapimg;
 
-var clat = 0;
-var clon = 0;
+const zoom = 1;
+const geolocal;
 
-var ww = 1024;
-var hh = 512;
+geolocal = loadStrings('assets/Darien_Profundo_excelExport.csv');
 
-var zoom = 1;
-var geolocal;
+  for (var i = 1; i < geolocal.length; i++) {
+    var data = geolocal[i].split(/,/);
+    console.log(data);
+    var lat = data[2];
+    var lon = data[3];
+    // var type = data[8];
 
-const data = { lat, lon, _geolocation };
-const options = {
-  method: 'GET'
-};
+    // This addition fixes the case where the longitude is non-zero and
+    // points can go off the screen.
+    if (x < -width / 2) {
+      x += width;
+    } else if (x > width / 2) {
+      x -= width;
+    }
 
-const kobo_url = `kobo/${lat},${lon}`;
-// const response = await fetch(kobo_url);
-// const data = await response.json();
+  }
+}
 
 
+//=======initial view of map
 let firstTime = true;
 
   const { lat, lon } = data;

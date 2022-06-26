@@ -15,6 +15,14 @@
 
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
 
+  <style>
+    #checkinMap {
+      height: 240px;
+      margin: 8px 0px;
+    }
+  </style>
+  <link rel="stylesheet" type="text/css" href="../style.css" />
+
 <title>Server Programming</title>
 </head>
 
@@ -27,19 +35,7 @@
 <div id="mapid"></div>
 
 <!-- ==============mapping script start================ -->
-<script type="text/javascript">
-const flora = L.icon({
-    iconUrl: 'assets/1x/flora.png',
-    iconSize: [30, 30],
-    iconAnchor: [15, 15],
-});
-const mymap = L.map('mapid').setView([0, 0], 1);
-const marker = L.marker([0, 0], { icon: flora }).addTo(mymap);
-const attribution = 'Maps © <a href="http://www.thunderforest.com/">Thunderforest</a>, Data © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>';
-const tileURL = 'https://tile.thunderforest.com/pioneer/{z}/{x}/{y}.png?apikey=1465c0f0a7fe4e91a7eb742506518845';
-const tiles = L.tileLayer(tileURL, { attribution });
-tiles.addTo(mymap);
-</script>
+<script src="map.js"></script>
 <!-- ==============mapping script end================ -->
 
 </body>
