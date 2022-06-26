@@ -12,7 +12,15 @@ var ww = 1024;
 var hh = 512;
 
 var zoom = 1;
+<<<<<<< HEAD
 var geolocal;
+=======
+<<<<<<< HEAD
+var geolocal;
+=======
+var earthquakes;
+>>>>>>> 0b6853a098ee4032f0ac43463d362f17ce2c649c
+>>>>>>> 25b81e88662f97f82e1b2ee527f243a60d3994fb
 
 function preload() {
   // The clon and clat in this url are edited to be in the correct order.
@@ -30,7 +38,17 @@ function preload() {
       '?access_token=pk.eyJ1IjoiY29kaW5ndHJhaW4iLCJhIjoiY2l6MGl4bXhsMDRpNzJxcDh0a2NhNDExbCJ9.awIfnl6ngyHoB3Xztkzarw'
   );
   // earthquakes = loadStrings('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.csv');
+<<<<<<< HEAD
   geolocal = loadStrings('../assets/Darien_Profundo_excelExport.csv');
+=======
+<<<<<<< HEAD
+  geolocal = loadStrings('../assets/Darien_Profundo_excelExport.csv');
+=======
+  earthquakes = loadStrings(
+    'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.csv'
+  );
+>>>>>>> 0b6853a098ee4032f0ac43463d362f17ce2c649c
+>>>>>>> 25b81e88662f97f82e1b2ee527f243a60d3994fb
 }
 
 function mercX(lon) {
@@ -57,12 +75,30 @@ function setup() {
   var cx = mercX(clon);
   var cy = mercY(clat);
 
+<<<<<<< HEAD
   for (var i = 1; i < geolocal.length; i++) {
     var data = geolocal[i].split(/,/);
     //console.log(data);
     var lat = data[2];
     var lon = data[3];
     var type = data[8];
+=======
+<<<<<<< HEAD
+  for (var i = 1; i < geolocal.length; i++) {
+    var data = geolocal[i].split(/,/);
+    //console.log(data);
+    var lat = data[2];
+    var lon = data[3];
+    var type = data[8];
+=======
+  for (var i = 1; i < earthquakes.length; i++) {
+    var data = earthquakes[i].split(/,/);
+    //console.log(data);
+    var lat = data[1];
+    var lon = data[2];
+    var mag = data[4];
+>>>>>>> 0b6853a098ee4032f0ac43463d362f17ce2c649c
+>>>>>>> 25b81e88662f97f82e1b2ee527f243a60d3994fb
     var x = mercX(lon) - cx;
     var y = mercY(lat) - cy;
     // This addition fixes the case where the longitude is non-zero and

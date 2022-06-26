@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+   <meta charset="utf-8">
+   <title></title>
+</head>
+
+<body>
+   <script type="text/javascript">
+      if ("geolocation" in navigator) {
+         console.log('geolocation is available');
+         navigator.geolocation.getCurrentPosition(position => {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+            document.getElementById('latitude').textContent = lat;
+            document.getElementById('longitude').textContent = lon;
+            // console.log(position);
+         });
+         console.log('Your current position is:');
+      } else {
+         console.log('geolocation not available')
+      }
+   </script>
+   <h1>Current Location</h1>
+   <p>latitude: <span id='latitude'></span>&deg;<br>
+      longitude: <span id='longitude'></span>&deg;
+   </p>
+</body>
+
+</html>

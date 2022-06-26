@@ -15,6 +15,10 @@
 
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 25b81e88662f97f82e1b2ee527f243a60d3994fb
   <style>
     #checkinMap {
       height: 240px;
@@ -23,6 +27,11 @@
   </style>
   <link rel="stylesheet" type="text/css" href="../style.css" />
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 0b6853a098ee4032f0ac43463d362f17ce2c649c
+>>>>>>> 25b81e88662f97f82e1b2ee527f243a60d3994fb
 <title>Server Programming</title>
 </head>
 
@@ -35,7 +44,27 @@
 <div id="mapid"></div>
 
 <!-- ==============mapping script start================ -->
+<<<<<<< HEAD
 <script src="map.js"></script>
+=======
+<<<<<<< HEAD
+<script src="map.js"></script>
+=======
+<script type="text/javascript">
+const flora = L.icon({
+    iconUrl: 'assets/1x/flora.png',
+    iconSize: [30, 30],
+    iconAnchor: [15, 15],
+});
+const mymap = L.map('mapid').setView([0, 0], 1);
+const marker = L.marker([0, 0], { icon: flora }).addTo(mymap);
+const attribution = 'Maps © <a href="http://www.thunderforest.com/">Thunderforest</a>, Data © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>';
+const tileURL = 'https://tile.thunderforest.com/pioneer/{z}/{x}/{y}.png?apikey=1465c0f0a7fe4e91a7eb742506518845';
+const tiles = L.tileLayer(tileURL, { attribution });
+tiles.addTo(mymap);
+</script>
+>>>>>>> 0b6853a098ee4032f0ac43463d362f17ce2c649c
+>>>>>>> 25b81e88662f97f82e1b2ee527f243a60d3994fb
 <!-- ==============mapping script end================ -->
 
 </body>
